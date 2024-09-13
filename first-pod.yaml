@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod #types of kubernetes object or resource you are creating
+metadata:
+  name : my-pod #Uniquely identify the service
+spec:
+  containers:
+  - name: nginx
+    image: nginx:1.14.2 # Corrected image name
+    ports:
+    - containerPort: 80
+  - name: redis
+    image: redis:6.2.5
