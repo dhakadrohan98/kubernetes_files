@@ -1,0 +1,50 @@
+# Start the minikube 
+
+minikube start —driver=docker
+kubectl cluster-info
+minikube dashboard
+
+#How to create, check status of POD & delete(destroy) the POD?
+kubectl apply -f first-pod.yaml
+kubectl get pods (get pods)
+kubectl get pods -w (watch mode the pods)
+kubectl delete pod my-pod(pod_name)
+kubectl logs my-pod (pod_name)
+
+
+#How to create Service & check Service details
+kubectl apply -f first-service.yaml
+kubectl get service
+
+
+#How to define the service (service.yaml file)
+apiVersion: v1
+kind: Service
+metadata:
+   name: my-service
+spec:
+   selector:
+    app: MyApp
+   ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 9376
+
+#How to create & Destroy(delete) ReplicaSet:
+kubectl apply -f replica-set.yaml
+kubectl get pods -w
+kubectl get replicaset
+kubectl delete pod pod_name
+kubectl delete replicaset my-replicaset(replicaset_name)
+
+
+#How to create Deployments?
+kubectl apply -f first-deployment.yaml
+kubectl get deployments
+kubectl delete deployments my-deployment
+kubectl describe deployment my-deployment (deployment_name)
+kubectl logs my-pod (pod_name)
+
+
+
+
